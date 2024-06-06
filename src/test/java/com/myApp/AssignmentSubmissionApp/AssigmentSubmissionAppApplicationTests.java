@@ -1,0 +1,13 @@
+package com.myApp.AssignmentSubmissionApp;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AssigmentSubmissionAppApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
