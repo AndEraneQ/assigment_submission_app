@@ -1,4 +1,4 @@
-package com.myApp.AssignmentSubmissionApp.service;
+package com.myApp.AssignmentSubmissionApp.security.services;
 
 
 import com.myApp.AssignmentSubmissionApp.domain.User;
