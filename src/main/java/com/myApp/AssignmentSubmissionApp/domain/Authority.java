@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 public class Authority implements GrantedAuthority {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
