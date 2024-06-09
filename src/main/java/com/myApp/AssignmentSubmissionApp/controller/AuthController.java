@@ -3,6 +3,7 @@ package com.myApp.AssignmentSubmissionApp.controller;
 import com.myApp.AssignmentSubmissionApp.domain.User;
 import com.myApp.AssignmentSubmissionApp.dto.AuthCredentialsRequest;
 import com.myApp.AssignmentSubmissionApp.repository.UserRepository;
+import com.myApp.AssignmentSubmissionApp.security.jwt.JwtResponse;
 import com.myApp.AssignmentSubmissionApp.security.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -49,6 +50,10 @@ public class AuthController {
                 .map(item -> item.getAuthority())
                 .toList();
 
-        return ResponseEntity.ok(userDetails);
+        return ResponseEntity.ok(new JwtResponse(jwt,
+                userDetails.getId(),
+                userDetails.getUsername(),
+                userDetails.getCohortStartDate(),
+                roles));
     }
 }
