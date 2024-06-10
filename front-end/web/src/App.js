@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import Dashboard from './component/dashboard';
 import React, { useState } from 'react';
 import Homepage from './component/homepage';
+import Login from './component/login';
+import PrivateRoute from './component/privateRoute';
 
 
 function App() {
@@ -14,28 +16,33 @@ function App() {
     return token ? JSON.parse(token) : "";
   });
 
-    useEffect(() => {
-      if(!jwt){
-        const reqBody = {
-          username : "trevor",
-          password : "asdfasdf"
-       };
-        axios.post('http://localhost:8080/api/auth/login', reqBody, {
-         headers: {
-           'Content-Type': 'application/json'
-          }
-        })
-        .then((response) => {
-          localStorage.setItem('jwt', JSON.stringify(response.data.token));
-          setJwt(JSON.stringify(response.data.token));
-        });
-      }
-    }, [jwt]);
+    // useEffect(() => {
+    //   if(!jwt){
+    //     const reqBody = {
+    //       username : "trevor",
+    //       password : "asdfasdf"
+    //    };
+    //     axios.post('http://localhost:8080/api/auth/login', reqBody, {
+    //      headers: {
+    //        'Content-Type': 'application/json'
+    //       }
+    //     })
+    //     .then((response) => {
+    //       localStorage.setItem('jwt', JSON.stringify(response.data.token));
+    //       setJwt(JSON.stringify(response.data.token));
+    //     });
+    //   }
+    // }, [jwt]);
 
   return (
     <Routes>
       <Route path="/" element = { <Homepage/> } />
-      <Route path ="/dashboard" element = { <Dashboard />}/>
+      <Route path="/dashboard" element={
+        <PrivateRoute>
+          <Dashboard />
+        </PrivateRoute>
+      }/>
+      <Route path ="/login" element = { <Login/> } />
     </Routes>
     
   );

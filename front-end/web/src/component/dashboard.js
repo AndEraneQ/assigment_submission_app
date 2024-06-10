@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
+import useJwt from '../helpers/useJwt';
 
 const Dashboard = () => {
 
-    const [jwt, setJwt] = useState(() => {
-        const token = localStorage.getItem('jwt');
-        return token ? JSON.parse(token) : "";
-      });
+    const [jwt] = useJwt();
   
     return (
         <div>
