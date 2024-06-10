@@ -1,12 +1,18 @@
-import { useEffect, useState} from 'react';
+import { useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from './component/dashboard';
+import React, { useState } from 'react';
+import Homepage from './component/homepage';
+
 
 function App() {
-    const [jwt, setJwt] = useState(() => {
-      const token = localStorage.getItem('jwt');
-      return token ? JSON.parse(token) : "";
-    });
+
+  const [jwt, setJwt] = useState(() => {
+    const token = localStorage.getItem('jwt');
+    return token ? JSON.parse(token) : "";
+  });
 
     useEffect(() => {
       if(!jwt){
@@ -24,12 +30,14 @@ function App() {
           setJwt(JSON.stringify(response.data.token));
         });
       }
-    }, []);
+    }, [jwt]);
 
   return (
-    <div className="App">
-      <h1>{jwt}</h1>
-    </div>
+    <Routes>
+      <Route path="/" element = { <Homepage/> } />
+      <Route path ="/dashboard" element = { <Dashboard />}/>
+    </Routes>
+    
   );
 }
 
