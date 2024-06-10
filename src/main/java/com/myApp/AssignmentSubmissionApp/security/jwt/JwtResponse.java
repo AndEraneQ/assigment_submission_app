@@ -1,5 +1,7 @@
 package com.myApp.AssignmentSubmissionApp.security.jwt;
 
+import com.myApp.AssignmentSubmissionApp.domain.User;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,6 +12,14 @@ public class JwtResponse {
     private String username;
     private LocalDate cohortStartDate;
     private List<String> roles;
+
+    public User toUser(){
+        User user = new User();
+        user.setId(id);
+        user.setUsername(username);
+        user.setCohortStartDate(cohortStartDate);
+        return user;
+    }
 
     public JwtResponse(String token, Long id, String username, LocalDate cohortStartDate, List<String> roles) {
         this.id = id;
