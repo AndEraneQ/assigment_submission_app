@@ -1,10 +1,12 @@
 import { useEffect, useState} from 'react';
 import './App.css';
 import axios from 'axios';
-import { useLocalState } from './util/useLocalStorage';
 
 function App() {
-    const [jwt, setJwt] = useLocalState("","jwt");
+    const [jwt, setJwt] = useState(() => {
+      const token = localStorage.getItem('jwt');
+      return token ? JSON.parse(token) : "";
+    });
 
     useEffect(() => {
       if(!jwt){
@@ -18,7 +20,8 @@ function App() {
           }
         })
         .then((response) => {
-          setJwt(response.data.token);
+          localStorage.setItem('jwt', JSON.stringify(response.data.token));
+          setJwt(JSON.stringify(response.data.token));
         });
       }
     }, []);
