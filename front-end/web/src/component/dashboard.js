@@ -3,8 +3,7 @@ import useJwt from '../helpers/useJwt';
 
 const Dashboard = () => {
 
-    const [jwt] = useJwt();
-  
+    const jwt = localStorage.getItem('jwt');
     return (
         <div>
             <h1>{jwt}</h1>

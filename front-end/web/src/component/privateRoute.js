@@ -3,7 +3,7 @@ import useJwt from '../helpers/useJwt';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ( {children }) => {
-    const [jwt, setJwt] = useJwt();
+    const jwt = localStorage.getItem('jwt');
     return jwt ? children : <Navigate to ="/login" />;
 };
 
