@@ -14,11 +14,11 @@ public class AssignmentService {
     @Autowired
     private AssignmentRepository assignmentRepository;
 
-    public Assignment save(JwtResponse jwtResponse) {
-        Assignment assignment = new Assignment();
-        assignment.setStatus("Need to be Submitted");
-        assignment.setUser(jwtResponse.toUser());
-
-        return assignmentRepository.save(assignment);
-    }
+//    public Assignment save(JwtResponse jwtResponse) {
+//        Assignment assignment = new Assignment();
+//        assignment.setStatus("Need to be Submitted");
+//        assignment.setUser(jwtResponse.toUser());
+//
+//        return assignmentRepository.save(assignment);
+//    }
 }
