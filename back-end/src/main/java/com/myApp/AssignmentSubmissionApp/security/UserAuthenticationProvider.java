@@ -1,4 +1,4 @@
-package com.myApp.AssignmentSubmissionApp.config;
+package com.myApp.AssignmentSubmissionApp.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -8,7 +8,6 @@ import com.myApp.AssignmentSubmissionApp.dto.UserDto;
 import com.myApp.AssignmentSubmissionApp.service.UserService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

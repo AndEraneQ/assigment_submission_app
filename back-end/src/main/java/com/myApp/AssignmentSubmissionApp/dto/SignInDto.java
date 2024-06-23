@@ -5,10 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class ErrorDto {
-    private String message;
+@Data
+@NoArgsConstructor
+@Builder
+public class SignInDto {
+    private String login;
+    private char[] password;
 }

@@ -1,4 +1,4 @@
-package com.myApp.AssignmentSubmissionApp.config;
+package com.myApp.AssignmentSubmissionApp.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.myApp.AssignmentSubmissionApp.dto.ErrorDto;
