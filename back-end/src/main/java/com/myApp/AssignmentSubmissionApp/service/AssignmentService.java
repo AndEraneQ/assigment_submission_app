@@ -1,9 +1,6 @@
 package com.myApp.AssignmentSubmissionApp.service;
-
-import com.myApp.AssignmentSubmissionApp.domain.Assignment;
-import com.myApp.AssignmentSubmissionApp.domain.User;
 import com.myApp.AssignmentSubmissionApp.repository.AssignmentRepository;
-import jakarta.persistence.Access;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
