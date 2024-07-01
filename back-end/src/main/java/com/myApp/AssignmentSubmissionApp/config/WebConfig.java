@@ -18,7 +18,7 @@ public class WebConfig {
     private static final int CORS_FILTER_ORDER = -102;
 
     @Bean
-    public FilterRegistrationBean corsFilter(){
+    public CorsFilter corsFilter(){
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
@@ -36,8 +36,6 @@ public class WebConfig {
         ));
         config.setMaxAge(MAX_AGE);
         source.registerCorsConfiguration("/**",config);
-        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-        bean.setOrder(CORS_FILTER_ORDER);
-        return bean;
+        return new CorsFilter(source);
     }
 }
